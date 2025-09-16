@@ -35,7 +35,7 @@ header h1 { margin:0; font-size:1.6rem; flex:1 1 auto; }
 .container { flex:1; padding:2rem; max-width:1000px; margin:0 auto; }
 .welcome { text-align:center; margin-bottom:2rem; font-size:1.6rem;}
 .links { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-bottom:2rem;}
-.links a { padding:15px 25px; background:rgba(255,255,255,0.08); border-radius:8px; text-decoration:none; color:#fff; font-weight:600; transition:0.3s; text-align:center; min-width:150px;}
+.links a { padding:15px 25px; background:rgba(255,255,255,0.08); border-radius:8px; text-decoration:none; color:#fff; font-weight:600; transition:0.3s; text-align:center; min-width:170px;}
 .links a:hover { background:linear-gradient(90deg,#3b82f6,#2563eb);}
 @media(max-width:768px){ header{flex-direction:column;align-items:flex-start;} .links{flex-direction:column;align-items:center;} }
 </style>
@@ -55,6 +55,7 @@ header h1 { margin:0; font-size:1.6rem; flex:1 1 auto; }
   <a href="assignments.php">📘 View Assignments</a>
   <a href="submit_assignment.php">📝 Submit Assignment</a>
   <a href="grades.php">🎯 View Grades</a>
+  <a href="attendance.php">✅ View Attendance</a>
 </div>
 </div>
 </body>

@@ -40,6 +40,7 @@ header h1 { margin:0; font-size:1.6rem; flex:1 1 auto; }
 <div class="links">
   <a href="manage_users.php">👥 Manage Users</a>
   <a href="manage_courses.php">📚 Manage Courses</a>
+  <a href="attendance_report.php">🗓 Attendance Report</a>
   <a href="#">📈 Reports</a>
   <a href="#">⚙️ Settings</a>
 </div>
