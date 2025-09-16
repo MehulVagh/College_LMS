@@ -41,26 +41,109 @@ if(isset($_POST['update'])){
     exit;
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Assignment - Faculty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #1e1b4b, #6d28d9, #0f172a);
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+}
+header {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+header h1 { margin: 0; font-size: 1.6rem; }
+.header-actions { display: flex; gap: 0.75rem; }
+.btn-custom {
+    border: none; padding: 8px 16px;
+    border-radius: 6px; color: #fff;
+    text-decoration: none; font-weight: 500;
+    transition: 0.3s;
+}
+.profile-btn { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.profile-btn:hover { opacity: 0.9; }
+.logout-btn { background: linear-gradient(90deg, #ef4444, #dc2626); }
+.logout-btn:hover { opacity: 0.9; }
 
-<h2>Edit Assignment</h2>
-<form method="POST">
-    <label>Course:</label>
-    <select name="course_id" required>
-        <?php foreach($courses as $c): ?>
-            <option value="<?= $c['course_id']; ?>" <?= ($c['course_id'] == $assignment['course_id']) ? 'selected' : '' ?>>
-                <?= $c['course_name']; ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+.container { padding: 2rem; max-width: 700px; }
+.page-title {
+    text-align: center; margin-bottom: 2rem;
+    font-size: 1.8rem; font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.form-wrapper {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+label { font-weight: 500; }
+input, select, textarea, button {
+    width: 100%; margin-bottom: 1rem;
+    padding: 10px; border-radius: 6px;
+    border: 1px solid #00ffff; background: rgba(0,0,0,0.2); color: #fff;
+}
+button { 
+    background: linear-gradient(90deg, #10b981, #059669); 
+    border: none; cursor: pointer; font-weight: 500;
+    transition: 0.3s;
+}
+button:hover { opacity: 0.85; }
+@media (max-width: 480px) {
+    .page-title { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>✏️ Edit Assignment</h1>
+    <div class="header-actions">
+        
+        <a href="../auth/logout.php" class="btn-custom logout-btn">🚪 Logout</a>
+    </div>
+</header>
 
-    <label>Title:</label>
-    <input type="text" name="title" value="<?= $assignment['title']; ?>" required><br><br>
+<div class="container">
+    <h2 class="page-title">Edit Assignment</h2>
+    <div class="form-wrapper">
+        <form method="POST">
+            <label>Course:</label>
+            <select name="course_id" required>
+                <option value="">--Select Course--</option>
+                <?php foreach($courses as $c): ?>
+                    <option value="<?= $c['course_id']; ?>" <?= ($c['course_id'] == $assignment['course_id']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($c['course_name']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
-    <label>Description:</label>
-    <textarea name="description"><?= $assignment['description']; ?></textarea><br><br>
+            <label>Title:</label>
+            <input type="text" name="title" value="<?= htmlspecialchars($assignment['title']); ?>" required>
 
-    <label>Due Date:</label>
-    <input type="date" name="due_date" value="<?= $assignment['due_date']; ?>" required><br><br>
+            <label>Description:</label>
+            <textarea name="description"><?= htmlspecialchars($assignment['description']); ?></textarea>
 
-    <button type="submit" name="update">Update Assignment</button>
-</form>
+            <label>Due Date:</label>
+            <input type="date" name="due_date" value="<?= $assignment['due_date']; ?>" required>
+
+            <button type="submit" name="update">Update Assignment</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
