@@ -133,7 +133,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
   <div class="card">
-    <h2>LearnSphere Login</h2>
+    <h2>iLearn Login</h2>
     <p>Welcome back! Enter your details to continue your journey.</p>
 
     <?php if (!empty($error)): ?>
